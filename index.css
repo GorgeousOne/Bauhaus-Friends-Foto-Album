@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+#textInputContainer {
+    margin-left: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+#canvas {
+    border: 1px solid black;
+}
+
+/* Media query for small screens */
+@media screen and (max-width: 600px) {
+    #container {
+        flex-direction: column;
+    }
+    #textInputContainer {
+        margin-top: 1em;
+    }
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text to Canvas</title>
+    <link rel="stylesheet" href="index.css"></style>
+</head>
+<body>
+<div id="container">
+
+    <canvas id="canvas" width="400" height="200"></canvas>
+    <div id="textInputContainer">
+        <div>
+            <h1>Image Cropper</h1>
+            <input type="file" id="inputImage" accept="image/*">
+            <br><br>
+            <div>
+                <img id="image" src="" alt="Image to crop">
+            </div>
+            <br><br>
+            <button id="cropButton">Crop Image</button>
+            <br><br>
+            <canvas id="croppedImage"></canvas>
+        </div>
+        <input type="text" id="textInput" placeholder="Enter text">
+        <button onclick="printText()">Print to Canvas</button>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+<script src="index.js"></script>
+</body>
+</html>
