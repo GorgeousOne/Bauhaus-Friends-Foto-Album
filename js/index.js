@@ -1,6 +1,7 @@
 
 const cardSize = [1240, 1748]
-const pad = 150;
+const pad = 175;
+const pad2 = 150;
 const fotoSize = cardSize[0] - 2 * pad;
 
 const $canvas = $('#post-card')[0];
@@ -46,7 +47,8 @@ function clearCard() {
 function refreshCardText() {
     const ctx = $canvas.getContext('2d');
     ctx.save();
-    const textStart = pad + fotoSize;
+    const textStart = pad2 + fotoSize;
+    const textWidth = cardSize[0] - 2 * pad2;
 
     ctx.fillStyle = 'white';
     ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
@@ -58,20 +60,20 @@ function refreshCardText() {
 
     // print name and age
     const name = $nameInput.val() + '  ' + $ageInput.val().toString();
-    ctx.fillText(name, pad, textStart + .75 * pad);
+    ctx.fillText(name, pad2, textStart + .75 * pad2);
 
     // print about text
     const fontSize = 48;
     ctx.font = fontSize + 'px Arial';
-    const lines = wrapText($storyInput.val(), fotoSize - fontSize, ctx);
+    const lines = wrapText($storyInput.val(), textWidth - fontSize, ctx);
 
     for (let i = 0; i < lines.length && i < 5; i++) {
-        ctx.fillText(lines[i], pad, textStart + 1.4 * pad + i * fontSize);
+        ctx.fillText(lines[i], pad2, textStart + 1.25 * pad + 1.25 * i * fontSize);
     }
 
     // print study program
     ctx.font = '32px Arial';
-    ctx.fillText($studyProgram.val(), pad, textStart + 3.4 * pad);
+    ctx.fillText($studyProgram.val(), pad2, textStart + 3.3 * pad);
 
     //print from to
     ctx.textAlign = 'right';
@@ -84,7 +86,7 @@ function refreshCardText() {
         timeSpan = start + ' — ' + end;
     }
     if (timeSpan !== null) {
-        ctx.fillText(timeSpan, cardSize[0] - pad, textStart + 3.4 * pad);
+        ctx.fillText(timeSpan, cardSize[0] - pad2, textStart + 3.3 * pad);
     }
     ctx.restore();
 }
@@ -98,7 +100,7 @@ function refreshCardFoto() {
     } else {
         image = $defaultImage[0];
     }
-    ctx.drawImage(image, pad, pad, fotoSize, fotoSize); // Adjust position and size as needed
+    ctx.drawImage(image, pad, pad2, fotoSize, fotoSize); // Adjust position and size as needed
 }
 
 
