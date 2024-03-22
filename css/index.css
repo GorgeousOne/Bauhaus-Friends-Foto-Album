@@ -10,7 +10,7 @@ body {
 #container {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    /*align-items: center;*/
 }
 #description-container {
     margin-left: 1em;
@@ -27,6 +27,12 @@ img {
     display: block;
     max-width: 40vw;
     max-height: 40vh;
+}
+
+#card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
 }
 
 #description-container {

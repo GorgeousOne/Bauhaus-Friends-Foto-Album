@@ -1,9 +1,9 @@
-// $(document).ready(() => {
 const $canvas = $('#post-card')[0];
 const $imageInput = $('#image-input');
 const $nameInput = $('#name-input');
-
-const $image = $('#profile-image');
+const $picture = $('#profile-image');
+const $defaultImage = $('#default-img')
+const $downloadButton = $('#download-button');
 
 const cardSize = [1240, 1748]
 const pad = 150;
@@ -13,8 +13,16 @@ let cropper;
 
 $nameInput.on('input', refreshCardText);
 $imageInput.on('change', createCropper);
-clearCard();
-refreshCardText();
+$downloadButton.on('click', saveCard);
+
+$canvas.width = cardSize[0];
+$canvas.height = cardSize[1];
+
+$(document).ready(() => {
+    clearCard();
+    refreshCardText();
+    refreshCardFoto();
+});
 
 function clearCard() {
     const ctx = $canvas.getContext('2d');
@@ -24,13 +32,15 @@ function clearCard() {
 
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
+    let image;
 
     if (cropper) {
-        // Get cropped canvas data
-        const croppedCanvas = cropper.getCroppedCanvas();
-        // Draw cropped image on canvas
-        ctx.drawImage(croppedCanvas, pad, pad, fotoSize, fotoSize); // Adjust position and size as needed
+        image = cropper.getCroppedCanvas();
+    } else {
+        image = $defaultImage[0];
     }
+    ctx.drawImage(image, pad, pad, fotoSize, fotoSize); // Adjust position and size as needed
+
 }
 
 function refreshCardText() {
@@ -41,7 +51,7 @@ function refreshCardText() {
     const textStart = pad + fotoSize;
     ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
 
-    ctx.font = '72px Arial';
+    ctx.font = '64px Arial';
     ctx.fillStyle = 'black';
     // ctx.textAlign = 'center';
     ctx.textBaseline = 'middle';
@@ -54,8 +64,8 @@ function createCropper(e) {
     const fileReader = new FileReader();
     fileReader.onload = function(event) {
 
-        $image.attr('src', event.target.result);
-        $image.on('load', function() {
+        $picture.attr('src', event.target.result);
+        $picture.on('load', function() {
             if (cropper) {
                 cropper.destroy(); // Destroy the previous instance
             }
@@ -76,4 +86,12 @@ function createCropper(e) {
         });
     };
     fileReader.readAsDataURL(e.target.files[0]);
+}
+
+function saveCard() {
+    const dataURL = $canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = 'post-card.png';
+    link.href = dataURL;
+    link.click();
 }
