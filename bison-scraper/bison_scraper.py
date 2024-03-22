@@ -42,7 +42,7 @@ def get_study_programs(driver, link):
 def save_to_file(programs):
 	sorted_programs = sorted(programs)
 
-	with open("study_programs.txt", "w", encoding="utf-8") as file:
+	with open("study-programs.txt", "w", encoding="utf-8") as file:
 		for program in sorted_programs:
 			file.write(program + "\n")
 
