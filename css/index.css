@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -19,6 +20,22 @@ body {
 }
 #canvas {
     border: 1px solid black;
+}
+
+/* Make sure the size of the image fits perfectly into the container */
+img {
+    display: block;
+    max-width: 100%;
+}
+
+#cropped-preview {
+    max-width: 50px;
+    max-height: 50px;
+}
+
+#cropped-preview canvas {
+    width: 100%; /* Set canvas width to 100% of its parent's width */
+    height: 100%; /* Set canvas height to 100% of its parent's height */
 }
 
 /* Media query for small screens */
