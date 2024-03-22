@@ -37,6 +37,7 @@ img {
 
 #description-container {
     max-width: 40vw;
+    min-width: 30vw;
 }
 #cropped-preview {
     max-width: 50px;
@@ -52,6 +53,15 @@ img {
     max-width: 40vw;
 }
 
+.row-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: .5rem;
+}
+#print-ref {
+    max-width: 3rem;
+}
 /* Media query for small screens */
 @media screen and (max-width: 600px) {
     #container {
