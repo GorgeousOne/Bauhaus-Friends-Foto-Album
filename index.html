@@ -9,18 +9,17 @@
 </head>
 <body>
 <div id="container">
-    <canvas id="canvas" width="400" height="200"></canvas>
-    <div id="textInputContainer" style="max-width: 50%">
-        <input type="file" id="inputImage" accept="image/*">
+    <canvas id="post-card" width="1240" height="1748"></canvas>
+    <div id="description-container">
+        <input type="file" id="image-input" accept="image/*">
         <div>
-            <img id="image" src="#" alt="Picture">
+            <img id="profile-image" src="#" alt="Picture">
         </div>
         <div>
-            <h3>Cropped Image Preview</h3>
             <div id="cropped-preview"></div>
         </div>
-        <input type="text" id="textInput" placeholder="Enter text">
-        <button id="printButton">Print to Canvas</button>
+        <input type="text" id="name-input" placeholder="You name">
+        <button id="download-button">Save image</button>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

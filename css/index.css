@@ -12,25 +12,28 @@ body {
     flex-direction: row;
     align-items: center;
 }
-#textInputContainer {
+#description-container {
     margin-left: 1em;
     display: flex;
     flex-direction: column;
     gap: 1em;
 }
-#canvas {
+#post-card {
     border: 1px solid black;
 }
 
-/* Make sure the size of the image fits perfectly into the container */
+/*limit size of cropper tool*/
 img {
     display: block;
-    max-width: 100%;
+    max-width: 40vw;
+    max-height: 40vh;
 }
 
+#description-container {
+    max-width: 40vw;
+}
 #cropped-preview {
     max-width: 50px;
-    max-height: 50px;
 }
 
 #cropped-preview canvas {
@@ -38,12 +41,17 @@ img {
     height: 100%; /* Set canvas height to 100% of its parent's height */
 }
 
+#post-card {
+    max-height: 70vh;
+    max-width: 40vw;
+}
+
 /* Media query for small screens */
 @media screen and (max-width: 600px) {
     #container {
         flex-direction: column;
     }
-    #textInputContainer {
+    #description-container {
         margin-top: 1em;
     }
 }
