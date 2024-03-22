@@ -1,19 +1,32 @@
-const $canvas = $('#post-card')[0];
-const $imageInput = $('#image-input');
-const $nameInput = $('#name-input');
-const $picture = $('#profile-image');
-const $defaultImage = $('#default-img')
-const $downloadButton = $('#download-button');
 
 const cardSize = [1240, 1748]
 const pad = 150;
 const fotoSize = cardSize[0] - 2 * pad;
 
+const $canvas = $('#post-card')[0];
+const $defaultImage = $('#default-img')
+const $picture = $('#profile-image');
+const $downloadButton = $('#download-button');
+
+const $imageInput = $('#image-input');
+const $nameInput = $('#name-input');
+const $storyInput = $('#story-input');
+const $ageInput = $('#age-input');
+const $studyProgram = $('#study-program');
+const $startInput = $('#semester-start');
+const $endInput = $('#semester-end');
+
 let cropper;
 
-$nameInput.on('input', refreshCardText);
-$imageInput.on('change', createCropper);
 $downloadButton.on('click', saveCard);
+$imageInput.on('change', createCropper);
+$nameInput.on('input', refreshCardText);
+$storyInput.on('input', refreshCardText);
+$ageInput.on('input', refreshCardText);
+$studyProgram.on('input', refreshCardText);
+$startInput.on('input', refreshCardText);
+$endInput.on('input', refreshCardText);
+
 
 $canvas.width = cardSize[0];
 $canvas.height = cardSize[1];
@@ -30,6 +43,52 @@ function clearCard() {
     ctx.fillRect(0, 0, $canvas.width, $canvas.height);
 }
 
+function refreshCardText() {
+    const ctx = $canvas.getContext('2d');
+    ctx.save();
+    const textStart = pad + fotoSize;
+
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
+
+    ctx.font = '64px Arial';
+    ctx.fillStyle = 'black';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = 'black';
+
+    // print name and age
+    const name = $nameInput.val() + '  ' + $ageInput.val().toString();
+    ctx.fillText(name, pad, textStart + .75 * pad);
+
+    // print about text
+    const fontSize = 48;
+    ctx.font = fontSize + 'px Arial';
+    const lines = wrapText($storyInput.val(), fotoSize - fontSize, ctx);
+
+    for (let i = 0; i < lines.length && i < 5; i++) {
+        ctx.fillText(lines[i], pad, textStart + 1.4 * pad + i * fontSize);
+    }
+
+    // print study program
+    ctx.font = '32px Arial';
+    ctx.fillText($studyProgram.val(), pad, textStart + 3.4 * pad);
+
+    //print from to
+    ctx.textAlign = 'right';
+    const start = $startInput.val();
+    const end = $endInput.val();
+    let timeSpan;
+    if (start === end) {
+        timeSpan = start
+    } else {
+        timeSpan = start + ' — ' + end;
+    }
+    if (timeSpan !== null) {
+        ctx.fillText(timeSpan, cardSize[0] - pad, textStart + 3.4 * pad);
+    }
+    ctx.restore();
+}
+
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
     let image;
@@ -40,23 +99,6 @@ function refreshCardFoto() {
         image = $defaultImage[0];
     }
     ctx.drawImage(image, pad, pad, fotoSize, fotoSize); // Adjust position and size as needed
-
-}
-
-function refreshCardText() {
-    const text = $nameInput.val();
-    const ctx = $canvas.getContext('2d');
-
-    ctx.fillStyle = 'white';
-    const textStart = pad + fotoSize;
-    ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
-
-    ctx.font = '64px Arial';
-    ctx.fillStyle = 'black';
-    // ctx.textAlign = 'center';
-    ctx.textBaseline = 'middle';
-    ctx.fillStyle = 'black';
-    ctx.fillText(text, pad, textStart + pad/2);
 }
 
 

@@ -18,7 +18,6 @@ function listSemesters() {
 		const month = currentDate.getMonth();
 		const shortYear = parseInt(year.toString().slice(-2));
 
-		console.log(year.toString().slice(-2), month);
 		if (month === 9) {
 			semesters.push("WS" + shortYear + "/" + (shortYear + 1));
 			currentDate.setFullYear(year + 1);
