@@ -53,7 +53,7 @@ function refreshCardText() {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
 
-    ctx.font = '64px Arial';
+    ctx.font = '64px Poppins';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'black';
@@ -64,7 +64,7 @@ function refreshCardText() {
 
     // print about text
     const fontSize = 48;
-    ctx.font = fontSize + 'px Arial';
+    ctx.font = fontSize + 'px Poppins';
     const lines = wrapText($storyInput.val(), textWidth - fontSize, ctx);
 
     for (let i = 0; i < lines.length && i < 5; i++) {
@@ -72,7 +72,7 @@ function refreshCardText() {
     }
 
     // print study program
-    ctx.font = '32px Arial';
+    ctx.font = '32px Poppins';
     ctx.fillText($studyProgram.val(), pad2, textStart + 3.3 * pad);
 
     //print from to

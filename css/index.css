@@ -1,8 +1,12 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url('font/Poppins-Regular.woff') format('woff'),
+    url('font/Poppins-Bold.woff') format('woff');
+    font-display: swap;
+}
 
 body {
-    font-family: Arial, sans-serif;
-    /*height: 100vh;*/
-    /*margin: 0;*/
+    font-family: Poppins, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
