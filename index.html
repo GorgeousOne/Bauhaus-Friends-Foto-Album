@@ -5,6 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Text to Canvas</title>
 	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="css/button.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css"/>
 </head>
 <body>
@@ -18,14 +19,17 @@
 		<div id="card-container">
 			<canvas id="post-card"></canvas>
 			<div class="centered">
-				<button id="download-button">Save image</button>
+				<button id="download-button" class="button-21">Save bio</button>
 			</div>
 		</div>
 		<div id="description-container">
-			<input type="file" id="image-input" accept="image/*">
 			<div>
-				<img id="profile-image" src="#">
+				<img id="profile-image" src="">
 				<img id="default-img" src="res/empty.png" style="display: none">
+			</div>
+			<div class="centered">
+				<label id="upload-label" for="image-input" class="button-21">Upload photo</label>
+				<input type="file" id="image-input" accept="image/*">
 			</div>
 			<label for="name-input">*Your Name:</label>
 			<input type="text" id="name-input" name="name">
