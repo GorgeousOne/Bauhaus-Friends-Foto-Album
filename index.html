@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="css/button.css"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css"/>
 </head>
-<body>
+<body class="centered">
 <main>
 	<h1>Flat Share Bio Creator</h1>
 	<span>With the form below you can create a postcard with a tiny bio about yourself. You can fill it out, print it out
@@ -46,10 +46,14 @@
 			<datalist id="study-program-list"></datalist>
 
 			<label for="semester-start">When you moved in:</label>
-			<select id="semester-start" name="start" required></select>
+			<select id="semester-start" name="start">
+				<option value=""></option>
+			</select>
 
 			<label for="semester-end">When you moved out:</label>
-			<select id="semester-end" name="end"></select>
+			<select id="semester-end" name="end">
+				<option value=""></option>
+			</select>
 		</div>
 	</div>
 	<div id="dm-container" class="centered">

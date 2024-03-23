@@ -61,7 +61,7 @@ function refreshCardText() {
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'black';
 
-    const name = $nameInput.val()
+    const name = $nameInput.val();
     const nameWidth = ctx.measureText(name).width;
     const age = $ageInput.val().toString();
 
@@ -90,7 +90,7 @@ function refreshCardText() {
     if (start === end) {
         timeSpan = start
     } else {
-        timeSpan = start + ' — ' + end;
+        timeSpan = start + ' \u2014 ' + end;
     }
     if (timeSpan !== null) {
         ctx.fillText(timeSpan, cardSize[0] - pad2, textStart + 3.3 * pad);
