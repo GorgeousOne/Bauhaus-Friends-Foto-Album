@@ -66,10 +66,7 @@ function refreshCardText() {
     ctx.font = '64px Poppins';
     ctx.fillText('  ' + age, pad2 + nameWidth, textY + .75 * pad2);
 
-    const story = $storyInput.val();
-    if (story !== '') {
-        printStory(ctx, story, textY);
-    }
+    printStory(ctx, $storyInput.val(), textY);
 
     // print study program
     const footerY = textY + 3.3 * pad;
@@ -105,12 +102,8 @@ function printStory(ctx, story, textY) {
     for (let i = 0; i < numLines; i++) {
         ctx.fillText(lines[i], pad2, storyY + 1.25 * i * fontSize);
     }
-    const quoteWidth = ctx.measureText('\u201C').width;
-    const lastLineWidth = ctx.measureText(lines[numLines - 1]).width;
-    ctx.fillText('\u201C', pad2 - quoteWidth, storyY);
-    ctx.fillText('\u201D', pad2 + lastLineWidth, storyY + 1.25 * (numLines - 1) * fontSize);
-
 }
+
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
     let image;
