@@ -1,56 +1,54 @@
 
 body {
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    /*height: 100vh;*/
     margin: 0;
 }
-#container {
-    display: flex;
-    flex-direction: row;
-    /*align-items: center;*/
-}
-#description-container {
-    margin-left: 1em;
+
+main {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-}
-#post-card {
-    border: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem
 }
 
-/*limit size of cropper tool*/
-img {
-    display: block;
-    max-width: 40vw;
-    max-height: 40vh;
+#creator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 #card-container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-}
-
-#description-container {
-    max-width: 40vw;
-    min-width: 30vw;
-}
-#cropped-preview {
-    max-width: 50px;
-}
-
-#cropped-preview canvas {
-    width: 100%; /* Set canvas width to 100% of its parent's width */
-    height: 100%; /* Set canvas height to 100% of its parent's height */
+    gap: 1rem;
 }
 
 #post-card {
-    max-height: 70vh;
-    max-width: 40vw;
+    border: 1px solid black;
+    max-width: 80vw;
+}
+
+#description-container {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+#description-container label {
+    margin-top: 1rem;
+}
+/*limit size of cropper tool*/
+#profile-image {
+    display: block;
+    max-width: 80vw;
+}
+
+
+#dm-logo {
+    max-width: 3rem;
 }
 
 .row-layout {
@@ -58,16 +56,4 @@ img {
     flex-direction: row;
     align-items: center;
     gap: .5rem;
-}
-#print-ref {
-    max-width: 3rem;
-}
-/* Media query for small screens */
-@media screen and (max-width: 600px) {
-    #container {
-        flex-direction: column;
-    }
-    #description-container {
-        margin-top: 1em;
-    }
 }
