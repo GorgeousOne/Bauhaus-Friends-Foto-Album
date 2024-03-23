@@ -11,8 +11,8 @@
 	color: #FFFFFF;
 	cursor: pointer;
 	display: inline-flex;
-	font-family: CircularStd,sans-serif;
-	font-size: 1rem;
+	font-family: "Poppins", sans-serif;
+
 	height: auto;
 	justify-content: center;
 	line-height: 1.5;
@@ -39,8 +39,4 @@
 
 .button-21:focus:not(:active) {
 	box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
-}
-
-input[type="file"] {
-	display: none;
 }

@@ -1,0 +1,23 @@
+
+/*hide file input and use label instead*/
+input[type="file"] {
+	display: none;
+}
+
+.input-21 {
+	font-family: 'Poppins', sans-serif;
+	align-items: center;
+	justify-content: center;
+	border-radius: 0.5rem;
+	border-width: 1px;
+	border-color: #26282E;
+	line-height: 1;
+	padding: 3px 7px;
+	text-align: left;
+	-webkit-user-select: none;
+}
+
+.input-21:active,
+.input-21:focus {
+	outline: none;
+}
