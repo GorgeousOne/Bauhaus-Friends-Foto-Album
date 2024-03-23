@@ -1,50 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Text to Canvas</title>
-    <link rel="stylesheet" href="css/index.css"/>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css"/>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Text to Canvas</title>
+	<link rel="stylesheet" href="css/index.css"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.6.1/cropper.css"/>
 </head>
 <body>
 <main>
-    <h1>Flat Share Bio Creator</h1>
-    <div id="creator-container">
-        <div id="card-container" style="align-items: center">
-            <canvas id="post-card"></canvas>
-            <button id="download-button">Save image</button>
-        </div>
-        <div id="description-container">
-            <input type="file" id="image-input" accept="image/*">
-            <div>
-                <img id="profile-image" src="#">
-                <img id="default-img" src="res/empty.png" style="display: none">
-            </div>
-            <label for="name-input">*Your Name:</label>
-            <input type="text" id="name-input" name="name">
+	<h1>Flat Share Bio Creator</h1>
+	<p style="width: 100%">You can use the form below to create a postcard with a tiny bio about yourself. You can fill it out, print it out
+		as a photo and hang it up in your flat share. This way, future flatmates can find out something about the people
+		who lived here before them :)</p>
+	<div id="creator-container">
+		<div id="card-container" style="align-items: center">
+			<canvas id="post-card"></canvas>
+			<button id="download-button">Save image</button>
+		</div>
+		<div id="description-container">
+			<input type="file" id="image-input" accept="image/*">
+			<div>
+				<img id="profile-image" src="#">
+				<img id="default-img" src="res/empty.png" style="display: none">
+			</div>
+			<label for="name-input">*Your Name:</label>
+			<input type="text" id="name-input" name="name">
 
-            <label for="story-input">*Your catchphrase:</label>
-            <textarea id="story-input" name="message" rows="5" placeholder="I once ate a whole jar of mayonnaise by myself in one sitting."></textarea>
+			<label for="story-input">*Your catchphrase:</label>
+			<textarea id="story-input" name="message" rows="5"
+			          placeholder="I once ate a whole jar of mayonnaise by myself in one sitting."></textarea>
 
-            <label for="age-input">Your Age:</label>
-            <input type="number" id="age-input" name="age" min="16" max="100">
+			<label for="age-input">Your Age:</label>
+			<input type="number" id="age-input" name="age" min="16" max="100">
 
-            <label for="study-program">Your study program:</label>
-            <input type="text" id="study-program" name="suggest" list="study-program-list">
-            <datalist id="study-program-list"></datalist>
+			<label for="study-program">Your study program:</label>
+			<input type="text" id="study-program" name="suggest" list="study-program-list">
+			<datalist id="study-program-list"></datalist>
 
-            <label for="semester-start">When you moved in:</label>
-            <select id="semester-start" name="start" required></select>
+			<label for="semester-start">When you moved in:</label>
+			<select id="semester-start" name="start" required></select>
 
-            <label for="semester-end">When you moved out:</label>
-            <select id="semester-end" name="end"></select>
-        </div>
-    </div>
-    <a class="row-layout" href="https://www.fotoparadies.de/fotos.html#fotoabzuege">
-        <span>You can get a cheap print here</span>
-        <img id="dm-logo" src="res/dm-logo.svg" alt="Logo">
-    </a>
+			<label for="semester-end">When you moved out:</label>
+			<select id="semester-end" name="end"></select>
+		</div>
+	</div>
+	<a class="row-layout" href="https://www.fotoparadies.de/fotos.html#fotoabzuege" target="_blank">
+		<span>You can get a cheap print here</span>
+		<img id="dm-logo" src="res/dm-logo.svg" alt="Logo">
+	</a>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>

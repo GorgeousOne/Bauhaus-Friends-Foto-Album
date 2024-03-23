@@ -33,7 +33,7 @@ $canvas.width = cardSize[0];
 $canvas.height = cardSize[1];
 
 $(document).ready(() => {
-    clearCard();
+	clearCard();
     refreshCardText();
     refreshCardFoto();
 });

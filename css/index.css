@@ -10,7 +10,8 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 2rem
+    gap: 2rem;
+    margin-bottom: 4em;
 }
 
 #creator-container {
@@ -56,4 +57,18 @@ main {
     flex-direction: row;
     align-items: center;
     gap: .5rem;
+}
+
+/* horizontal ipads and PC? */
+@media (min-width: 900px) {
+    #creator-container {
+        flex-direction: row;
+    }
+    #post-card {
+        max-width: 40vw;
+        max-height: 70vh;
+    }
+    #description-container {
+        max-width: 40vw;
+    }
 }
