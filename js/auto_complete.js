@@ -1,14 +1,22 @@
-$(document).ready(function () {
-	$.each(listSemesters(), function (index, value) {
-		$('#semester-start').append($('<option>').text(value));
-		$('#semester-end').append($('<option>').text(value));
-	});
 
-	const $datalist = $('#study-program-list');
+document.addEventListener('DOMContentLoaded', () => {
+	const startInput = document.getElementById('semester-start');
+	const endInput = document.getElementById('semester-end');
+	const studyProgram = document.getElementById('study-program-list');
+
+	for (const semester of listSemesters()) {
+		const option = document.createElement('option');
+		option.textContent = semester;
+		startInput.appendChild(option);
+		endInput.appendChild(option.cloneNode(true));
+	}
+
 	listStudyPrograms((list) => {
-		$.each(list, (index, value) => {
-			$datalist.append($('<option>').text(value));
-		});
+		for (const program of list) {
+			const option = document.createElement('option');
+			option.textContent = program;
+			studyProgram.appendChild(option);
+		}
 	});
 });
 

@@ -4,53 +4,53 @@ const pad = 175;
 const pad2 = 150;
 const fotoSize = cardSize[0] - 2 * pad;
 
-const $canvas = $('#post-card')[0];
-const $defaultImage = $('#default-img')
-const $picture = $('#profile-image');
-const $downloadButton = $('#download-button');
+const canvas = document.getElementById("post-card");
+const defaultImage = document.getElementById("default-img")
+const picture = document.getElementById("profile-image");
+const downloadButton = document.getElementById("download-button");
 
-const $imageInput = $('#image-input');
-const $nameInput = $('#name-input');
-const $storyInput = $('#story-input');
-const $ageInput = $('#age-input');
-const $studyProgram = $('#study-program');
-const $startInput = $('#semester-start');
-const $endInput = $('#semester-end');
+const imageInput = document.getElementById("image-input");
+const nameInput = document.getElementById("name-input");
+const storyInput = document.getElementById("story-input");
+const ageInput = document.getElementById("age-input");
+const studyProgram = document.getElementById("study-program");
+const startInput = document.getElementById("semester-start");
+const endInput = document.getElementById("semester-end");
 
 let cropper;
 
-$downloadButton.on('click', saveCard);
-$imageInput.on('change', createCropper);
-$nameInput.on('input', refreshCardText);
-$storyInput.on('input', refreshCardText);
-$ageInput.on('input', refreshCardText);
-$studyProgram.on('input', refreshCardText);
-$startInput.on('input', refreshCardText);
-$endInput.on('input', refreshCardText);
+downloadButton.addEventListener('click', saveCard);
+imageInput.addEventListener('change', createCropper);
+nameInput.addEventListener('input', refreshCardText);
+storyInput.addEventListener('input', refreshCardText);
+ageInput.addEventListener('input', refreshCardText);
+studyProgram.addEventListener('input', refreshCardText);
+startInput.addEventListener('input', refreshCardText);
+endInput.addEventListener('input', refreshCardText);
 
 
-$canvas.width = cardSize[0];
-$canvas.height = cardSize[1];
+canvas.width = cardSize[0];
+canvas.height = cardSize[1];
 
-$(document).ready(() => {
-	clearCard();
+document.addEventListener('DOMContentLoaded', () => {
+    clearCard();
     refreshCardText();
     refreshCardFoto();
 });
 
 function clearCard() {
-    const ctx = $canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
     ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, $canvas.width, $canvas.height);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
 }
 
 function refreshCardText() {
-    const ctx = $canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
     ctx.save();
     const textY = pad2 + fotoSize;
 
     ctx.fillStyle = 'white';
-    ctx.fillRect(0, textY, $canvas.width, $canvas.height);
+    ctx.fillRect(0, textY, canvas.width, canvas.height);
 
     // print name and age
     ctx.font = 'bold 64px Poppins';
@@ -58,25 +58,25 @@ function refreshCardText() {
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'black';
 
-    const name = $nameInput.val();
+    const name = nameInput.value;
     const nameWidth = ctx.measureText(name).width;
-    const age = $ageInput.val().toString();
+    const age = ageInput.value.toString();
 
     ctx.fillText(name, pad2, textY + .75 * pad2);
     ctx.font = '64px Poppins';
     ctx.fillText('  ' + age, pad2 + nameWidth, textY + .75 * pad2);
 
-    printStory(ctx, $storyInput.val(), textY);
+    printStory(ctx, storyInput.value, textY);
 
     // print study program
     const footerY = textY + 3.3 * pad;
     ctx.font = '32px Poppins';
-    ctx.fillText($studyProgram.val(), pad2, footerY);
+    ctx.fillText(studyProgram.value, pad2, footerY);
 
     //print from to
     ctx.textAlign = 'right';
-    const start = $startInput.val();
-    const end = $endInput.val();
+    const start = startInput.value;
+    const end = endInput.value;
     let timeSpan;
     if (start === end) {
         timeSpan = start
@@ -105,15 +105,16 @@ function printStory(ctx, story, textY) {
 }
 
 function refreshCardFoto() {
-    const ctx = $canvas.getContext('2d');
+    const ctx = canvas.getContext('2d');
     let image;
 
     if (cropper) {
         image = cropper.getCroppedCanvas();
     } else {
-        image = $defaultImage[0];
+        image = defaultImage;
     }
-    ctx.drawImage(image, pad, pad2, fotoSize, fotoSize); // Adjust position and size as needed
+    ctx.fillRect(pad, pad2, fotoSize, fotoSize);
+    ctx.drawImage(image, pad, pad2, fotoSize, fotoSize);
 }
 
 
@@ -121,8 +122,8 @@ function createCropper(e) {
     const fileReader = new FileReader();
     fileReader.onload = function(event) {
 
-        $picture.attr('src', event.target.result);
-        $picture.on('load', function() {
+        picture.src = event.target.result;
+        picture.addEventListener('load', function() {
             if (cropper) {
                 cropper.destroy(); // Destroy the previous instance
             }
@@ -139,7 +140,7 @@ function createCropper(e) {
 }
 
 function saveCard() {
-    const dataURL = $canvas.toDataURL('image/png');
+    const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
     link.download = 'post-card.png';
     link.href = dataURL;
