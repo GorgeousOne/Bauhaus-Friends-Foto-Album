@@ -1,8 +1,8 @@
 
-const cardSize = [1240, 1760]
-const pad = 175;
-const pad2 = 150;
-const fotoSize = cardSize[0] - 2 * pad;
+const cardSize = [1063,  1535]
+const padX = 90;
+const padY = 130;
+const fotoSize = cardSize[0] - 2 * padY;
 
 const canvas = document.getElementById("post-card");
 const defaultImage = document.getElementById("default-img")
@@ -47,13 +47,13 @@ function clearCard() {
 function refreshCardText() {
     const ctx = canvas.getContext('2d');
     ctx.save();
-    const textY = pad2 + fotoSize;
+    const textY = 0.9 * padY + fotoSize;
 
     ctx.fillStyle = 'white';
     ctx.fillRect(0, textY, canvas.width, canvas.height);
 
     // print name and age
-    ctx.font = 'bold 64px Poppins';
+    ctx.font = 'bold 56px Poppins';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'black';
@@ -61,17 +61,18 @@ function refreshCardText() {
     const name = nameInput.value;
     const nameWidth = ctx.measureText(name).width;
     const age = ageInput.value.toString();
+    const nameY = textY + .75 * padY;
 
-    ctx.fillText(name, pad2, textY + .75 * pad2);
-    ctx.font = '64px Poppins';
-    ctx.fillText('  ' + age, pad2 + nameWidth, textY + .75 * pad2);
+    ctx.fillText(name, padX, nameY);
+    ctx.font = '55px Poppins';
+    ctx.fillText('  ' + age, padX + nameWidth, nameY);
 
     printStory(ctx, storyInput.value, textY);
 
     // print study program
-    const footerY = textY + 3.3 * pad;
-    ctx.font = '32px Poppins';
-    ctx.fillText(studyProgram.value, pad2, footerY);
+    const footerY = textY + 3.9 * padY;
+    ctx.font = '28px Poppins';
+    ctx.fillText(studyProgram.value, padX, footerY);
 
     //print from to
     ctx.textAlign = 'right';
@@ -84,23 +85,23 @@ function refreshCardText() {
         timeSpan = start + ' \u2014 ' + end;
     }
     if (timeSpan !== null) {
-        ctx.fillText(timeSpan, cardSize[0] - pad2, footerY);
+        ctx.fillText(timeSpan, cardSize[0] - padX, footerY);
     }
     ctx.restore();
 }
 
 function printStory(ctx, story, textY) {
-    const textWidth = cardSize[0] - 2 * pad2;
+    const textWidth = cardSize[0] - 2 * padX;
 
     // print story text
-    const storyY = textY + 1.25 * pad;
-    const fontSize = 48;
+    const storyY = textY + 1.5 * padY;
+    const fontSize = 42;
     ctx.font = fontSize + 'px Poppins';
     const lines = wrapText(story, textWidth, ctx);
     const numLines = Math.min(lines.length, 5);
 
     for (let i = 0; i < numLines; i++) {
-        ctx.fillText(lines[i], pad2, storyY + 1.25 * i * fontSize);
+        ctx.fillText(lines[i], padX, storyY + 1.25 * i * fontSize);
     }
 }
 
@@ -113,8 +114,8 @@ function refreshCardFoto() {
     } else {
         image = defaultImage;
     }
-    ctx.fillRect(pad, pad2, fotoSize, fotoSize);
-    ctx.drawImage(image, pad, pad2, fotoSize, fotoSize);
+    ctx.fillRect(padY, 0.9 * padY, fotoSize, fotoSize);
+    ctx.drawImage(image, padY, 0.9 * padY, fotoSize, fotoSize);
 }
 
 
