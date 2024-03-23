@@ -108,16 +108,8 @@ label {
 		--column-width: calc(0.5 * var(--content-width));
 	}
 
-	body {
-		font-size: 1rem;
-	}
-
 	#creator-container {
 		flex-wrap: nowrap;
-	}
-
-	.button-21, .input-21 {
-		font-size: 1rem;
 	}
 
 	#post-card {

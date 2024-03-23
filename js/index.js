@@ -1,5 +1,5 @@
 
-const cardSize = [1240, 1748]
+const cardSize = [1240, 1760]
 const pad = 175;
 const pad2 = 150;
 const fotoSize = cardSize[0] - 2 * pad;
