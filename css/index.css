@@ -1,73 +1,108 @@
 
 body {
     font-family: Arial, sans-serif;
+    /*height: 100vh;*/
+    /*margin: 0;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-#container {
-    display: flex;
-    flex-direction: row;
-    /*align-items: center;*/
-}
-#description-container {
-    margin-left: 1em;
-    display: flex;
-    flex-direction: column;
-    gap: 1em;
-}
-#post-card {
-    border: 1px solid black;
 }
 
-/*limit size of cropper tool*/
-img {
-    display: block;
-    max-width: 40vw;
-    max-height: 40vh;
+main {
+    max-width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+main > * {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
+}
+
+label {
+    margin-bottom: 0.5rem;
+}
+
+#creator-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 #card-container {
     display: flex;
     flex-direction: column;
-    gap: 1em;
-}
-
-#description-container {
-    max-width: 40vw;
-    min-width: 30vw;
-}
-#cropped-preview {
-    max-width: 50px;
-}
-
-#cropped-preview canvas {
-    width: 100%; /* Set canvas width to 100% of its parent's width */
-    height: 100%; /* Set canvas height to 100% of its parent's height */
+    gap: 1rem;
 }
 
 #post-card {
-    max-height: 70vh;
-    max-width: 40vw;
+    border: 1px solid black;
+    max-width: 80vw;
 }
 
-.row-layout {
+#description-container {
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+
+#description-container label {
+    margin-top: 1rem;
+}
+
+/*limit size of cropper tool*/
+#profile-image {
+    display: block;
+    max-width: 80vw;
+}
+
+#dm-container {
+ width: 100%;
+}
+
+#dm-link {
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: .5rem;
 }
-#print-ref {
+
+#dm-logo {
     max-width: 3rem;
 }
-/* Media query for small screens */
-@media screen and (max-width: 600px) {
-    #container {
-        flex-direction: column;
+
+.centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* horizontal ipads and PC? */
+@media (min-width: 800px) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+    main {
+        max-width: 70vw;
+        justify-content: left;
+        align-items: start;
+    }
+    #creator-container {
+        flex-direction: row;
+        max-width: 70vw;
+    }
+    #post-card {
+        max-width: 40vw;
+        max-height: 70vh;
     }
     #description-container {
-        margin-top: 1em;
+        width: 40vw;
+    }
+    #profile-image {
+        max-width: 40vw;
+        max-height: 80vh;
     }
 }

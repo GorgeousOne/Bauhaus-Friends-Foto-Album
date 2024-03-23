@@ -33,7 +33,7 @@ $canvas.width = cardSize[0];
 $canvas.height = cardSize[1];
 
 $(document).ready(() => {
-    clearCard();
+	clearCard();
     refreshCardText();
     refreshCardFoto();
 });
@@ -118,14 +118,7 @@ function createCropper(e) {
                 viewMode: 1, // Set to 1 to restrict the cropped area to be within the container
                 autoCropArea: 1, // Ensure that the initial cropped area covers the whole container
                 responsive: true, // Enable responsive mode
-                crop: function(event) {
-                    const canvas = cropper.getCroppedCanvas({
-                        width: 200,
-                        height: 200
-                    });
-                    $('#cropped-preview').empty().append(canvas);
-                    refreshCardFoto();
-                }
+                crop: refreshCardFoto
             });
         });
     };
