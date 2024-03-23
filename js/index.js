@@ -47,11 +47,10 @@ function clearCard() {
 function refreshCardText() {
     const ctx = $canvas.getContext('2d');
     ctx.save();
-    const textStart = pad2 + fotoSize;
-    const textWidth = cardSize[0] - 2 * pad2;
+    const textY = pad2 + fotoSize;
 
     ctx.fillStyle = 'white';
-    ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
+    ctx.fillRect(0, textY, $canvas.width, $canvas.height);
 
     // print name and age
     ctx.font = 'bold 64px Poppins';
@@ -63,22 +62,19 @@ function refreshCardText() {
     const nameWidth = ctx.measureText(name).width;
     const age = $ageInput.val().toString();
 
-    ctx.fillText(name, pad2, textStart + .75 * pad2);
+    ctx.fillText(name, pad2, textY + .75 * pad2);
     ctx.font = '64px Poppins';
-    ctx.fillText('  ' + age, pad2 + nameWidth, textStart + .75 * pad2);
+    ctx.fillText('  ' + age, pad2 + nameWidth, textY + .75 * pad2);
 
-    // print story text
-    const fontSize = 48;
-    ctx.font = fontSize + 'px Poppins';
-    const lines = wrapText($storyInput.val(), textWidth - fontSize, ctx);
-
-    for (let i = 0; i < lines.length && i < 5; i++) {
-        ctx.fillText(lines[i], pad2, textStart + 1.25 * pad + 1.25 * i * fontSize);
+    const story = $storyInput.val();
+    if (story !== '') {
+        printStory(ctx, story, textY);
     }
 
     // print study program
+    const footerY = textY + 3.3 * pad;
     ctx.font = '32px Poppins';
-    ctx.fillText($studyProgram.val(), pad2, textStart + 3.3 * pad);
+    ctx.fillText($studyProgram.val(), pad2, footerY);
 
     //print from to
     ctx.textAlign = 'right';
@@ -91,11 +87,30 @@ function refreshCardText() {
         timeSpan = start + ' \u2014 ' + end;
     }
     if (timeSpan !== null) {
-        ctx.fillText(timeSpan, cardSize[0] - pad2, textStart + 3.3 * pad);
+        ctx.fillText(timeSpan, cardSize[0] - pad2, footerY);
     }
     ctx.restore();
 }
 
+function printStory(ctx, story, textY) {
+    const textWidth = cardSize[0] - 2 * pad2;
+
+    // print story text
+    const storyY = textY + 1.25 * pad;
+    const fontSize = 48;
+    ctx.font = fontSize + 'px Poppins';
+    const lines = wrapText(story, textWidth, ctx);
+    const numLines = Math.min(lines.length, 5);
+
+    for (let i = 0; i < numLines; i++) {
+        ctx.fillText(lines[i], pad2, storyY + 1.25 * i * fontSize);
+    }
+    const quoteWidth = ctx.measureText('\u201C').width;
+    const lastLineWidth = ctx.measureText(lines[numLines - 1]).width;
+    ctx.fillText('\u201C', pad2 - quoteWidth, storyY);
+    ctx.fillText('\u201D', pad2 + lastLineWidth, storyY + 1.25 * (numLines - 1) * fontSize);
+
+}
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
     let image;

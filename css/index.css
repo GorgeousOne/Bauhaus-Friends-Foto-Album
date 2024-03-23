@@ -102,7 +102,7 @@ label {
 }
 
 /* horizontal ipads and PC? */
-@media (min-width: 800px) {
+@media (min-width: 900px) {
 	:root {
 		--content-width: 70vw;
 		--column-width: calc(0.5 * var(--content-width));

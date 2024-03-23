@@ -28,17 +28,19 @@ function wrapText(text, maxWidth, ctx) {
 					words.push(tmp.slice(-1));
 				}
 			}
+
 			// add words until line is too long
 			if (ctx.measureText(line + words[0]).width < maxWidth) {
 				line += words.shift() + ' ';
 			} else {
 				// start new line if line is too long
-				lines.push(line);
+				console.log(line);
+				lines.push(line.trim());
 				line = '';
 			}
 			// finish last line if no words left
 			if (words.length === 0) {
-				lines.push(line);
+				lines.push(line.trim());
 				line = '';
 			}
 		}
