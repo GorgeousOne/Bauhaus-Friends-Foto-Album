@@ -3,15 +3,23 @@ body {
     font-family: Arial, sans-serif;
     /*height: 100vh;*/
     margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main {
+    max-width: 80vw;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    margin-bottom: 4em;
+}
+
+main > * {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    margin-bottom: 1rem;
 }
 
 #creator-container {
@@ -41,34 +49,57 @@ main {
 #description-container label {
     margin-top: 1rem;
 }
+
 /*limit size of cropper tool*/
 #profile-image {
     display: block;
     max-width: 80vw;
 }
 
+#dm-container {
+ width: 100%;
+}
+
+#dm-link {
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
 
 #dm-logo {
     max-width: 3rem;
 }
 
-.row-layout {
+.centered {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: .5rem;
 }
 
 /* horizontal ipads and PC? */
 @media (min-width: 900px) {
+    body {
+        justify-content: center;
+        align-items: center;
+    }
+    main {
+        max-width: 70vw;
+        justify-content: left;
+        align-items: start;
+    }
     #creator-container {
         flex-direction: row;
+        max-width: 70vw;
     }
     #post-card {
         max-width: 40vw;
         max-height: 70vh;
     }
     #description-container {
+        width: 40vw;
+    }
+    #profile-image {
         max-width: 40vw;
+        max-height: 80vh;
     }
 }

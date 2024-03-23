@@ -10,13 +10,16 @@
 <body>
 <main>
 	<h1>Flat Share Bio Creator</h1>
-	<p style="width: 100%">You can use the form below to create a postcard with a tiny bio about yourself. You can fill it out, print it out
+	<span>With the form below you can create a postcard with a tiny bio about yourself. You can fill it out, print it out
 		as a photo and hang it up in your flat share. This way, future flatmates can find out something about the people
-		who lived here before them :)</p>
+		who lived here before them :)</span>
 	<div id="creator-container">
-		<div id="card-container" style="align-items: center">
+		<div id="card-container">
+			<label>Bio preview:</label>
 			<canvas id="post-card"></canvas>
-			<button id="download-button">Save image</button>
+			<div class="centered">
+				<button id="download-button">Save image</button>
+			</div>
 		</div>
 		<div id="description-container">
 			<input type="file" id="image-input" accept="image/*">
@@ -29,7 +32,7 @@
 
 			<label for="story-input">*Your catchphrase:</label>
 			<textarea id="story-input" name="message" rows="5"
-			          placeholder="I once ate a whole jar of mayonnaise by myself in one sitting."></textarea>
+			          placeholder="I once ate an entire jar of mayonnaise by myself in one sitting."></textarea>
 
 			<label for="age-input">Your Age:</label>
 			<input type="number" id="age-input" name="age" min="16" max="100">
@@ -45,10 +48,12 @@
 			<select id="semester-end" name="end"></select>
 		</div>
 	</div>
-	<a class="row-layout" href="https://www.fotoparadies.de/fotos.html#fotoabzuege" target="_blank">
-		<span>You can get a cheap print here</span>
-		<img id="dm-logo" src="res/dm-logo.svg" alt="Logo">
-	</a>
+	<div id="dm-container" class="centered">
+		<a id="dm-link" href="https://www.fotoparadies.de/fotos.html#fotoabzuege" target="_blank">
+			<span>You can get a cheap print here</span>
+			<img id="dm-logo" src="res/dm-logo.svg" alt="Logo">
+		</a>
+	</div>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
