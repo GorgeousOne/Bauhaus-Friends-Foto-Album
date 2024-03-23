@@ -143,7 +143,8 @@ function createCropper(e) {
 function saveCard() {
     const dataURL = canvas.toDataURL('image/png');
     const link = document.createElement('a');
-    link.download = 'post-card.png';
+    const sanitizedName = sanitizeFileName(nameInput.value);
+    link.download = 'postcard_' + sanitizedName + '.png';
     link.href = dataURL;
     link.click();
 }

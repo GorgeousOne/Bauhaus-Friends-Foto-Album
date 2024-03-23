@@ -1,6 +1,11 @@
 // https://stackoverflow.com/questions/2936112/text-wrap-in-a-canvas-element
 // https://stackoverflow.com/a/11124580/7636794
 
+function sanitizeFileName(fileName) {
+	const invalidCharsRegex = /[^a-zA-Z0-9\.\(\)_-]/g;
+	return fileName.replace(invalidCharsRegex, '_');
+}
+
 function wrapText(text, maxWidth, ctx) {
 	//split text into words
 	//resulting lines
