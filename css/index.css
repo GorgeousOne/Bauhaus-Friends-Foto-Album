@@ -1,8 +1,21 @@
+/*@font-face {*/
+/*	font-family: 'Poppins';*/
+/*	src: url('font/Poppins-Regular.woff') format('woff'),*/
+/*	font-display: swap;*/
+/*}*/
+
 @font-face {
 	font-family: 'Poppins';
-	src: url('font/Poppins-Regular.woff') format('woff'),
-	url('font/Poppins-Bold.woff') format('woff');
-	font-display: swap;
+	src: url('font/Poppins-Regular.woff') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'Poppins';
+	src: url('font/Poppins-SemiBold.woff') format('truetype');
+	font-weight: bold;
+	font-style: normal;
 }
 
 .button-21, .input-21 {
