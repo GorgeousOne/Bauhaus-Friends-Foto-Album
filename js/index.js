@@ -53,16 +53,23 @@ function refreshCardText() {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
 
-    ctx.font = '64px Poppins';
+
+    // print name and age
+
+    ctx.font = 'bold 64px Poppins';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
     ctx.fillStyle = 'black';
 
-    // print name and age
-    const name = $nameInput.val() + '  ' + $ageInput.val().toString();
-    ctx.fillText(name, pad2, textStart + .75 * pad2);
+    const name = $nameInput.val()
+    const nameWidth = ctx.measureText(name).width;
+    const age = $ageInput.val().toString();
 
-    // print about text
+    ctx.fillText(name, pad2, textStart + .75 * pad2);
+    ctx.font = '64px Poppins';
+    ctx.fillText('  ' + age, pad2 + nameWidth, textStart + .75 * pad2);
+
+    // print story text
     const fontSize = 48;
     ctx.font = fontSize + 'px Poppins';
     const lines = wrapText($storyInput.val(), textWidth - fontSize, ctx);
@@ -91,6 +98,9 @@ function refreshCardText() {
     ctx.restore();
 }
 
+function refreshStory() {
+
+}
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
     let image;
