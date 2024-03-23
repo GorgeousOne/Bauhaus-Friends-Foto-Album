@@ -53,9 +53,7 @@ function refreshCardText() {
     ctx.fillStyle = 'white';
     ctx.fillRect(0, textStart, $canvas.width, $canvas.height);
 
-
     // print name and age
-
     ctx.font = 'bold 64px Poppins';
     ctx.fillStyle = 'black';
     ctx.textBaseline = 'middle';
@@ -98,9 +96,6 @@ function refreshCardText() {
     ctx.restore();
 }
 
-function refreshStory() {
-
-}
 function refreshCardFoto() {
     const ctx = $canvas.getContext('2d');
     let image;
