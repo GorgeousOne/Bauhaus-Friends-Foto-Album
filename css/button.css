@@ -11,7 +11,6 @@
 	color: #FFFFFF;
 	cursor: pointer;
 	display: inline-flex;
-	font-family: "Poppins", sans-serif;
 
 	height: auto;
 	justify-content: center;
@@ -39,4 +38,20 @@
 
 .button-21:focus:not(:active) {
 	box-shadow: rgba(40, 170, 255, 0.25) 0 0 0 .125em;
+}
+
+.circle {
+	border-radius: 50%;
+	border-width: 0;
+	padding: 0;
+	height: 2rem;
+	width: 2rem;
+	background-color: white;
+	background-image: url("../res/github-logo.png");
+	background-size: 100%;
+	transition: background-color .2s;
+}
+
+.circle:hover {
+	background-color: grey;
 }

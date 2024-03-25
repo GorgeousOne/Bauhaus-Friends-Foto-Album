@@ -18,16 +18,12 @@
 	font-style: normal;
 }
 
-.button-21, .input-21 {
-	font-size: 1.5rem;
-}
-
 :root {
 	--content-width: 85vw;
 	--column-width: var(--content-width);
 }
 
-body {
+body, .button-21, .input-21 {
 	font-size: 1.5rem;
 	font-family: Poppins, sans-serif;
 }
@@ -98,7 +94,7 @@ label {
 	width: 100%;
 }
 
-#dm-link {
+.rowed {
 	display: flex;
 	flex-direction: row;
 	gap: .5rem;
@@ -112,6 +108,7 @@ label {
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	gap: 0.5rem;
 }
 
 /* horizontal ipads and PC? */
@@ -119,6 +116,10 @@ label {
 	:root {
 		--content-width: 70vw;
 		--column-width: calc(0.5 * var(--content-width));
+	}
+
+	body, .button-21, .input-21 {
+		font-size: 1.2rem;
 	}
 
 	#creator-container {
