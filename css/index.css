@@ -90,16 +90,6 @@ label {
 	resize: vertical;
 }
 
-#dm-container {
-	width: 100%;
-}
-
-.rowed {
-	display: flex;
-	flex-direction: row;
-	gap: .5rem;
-}
-
 #dm-logo {
 	max-width: 3rem;
 }

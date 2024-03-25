@@ -37,7 +37,7 @@ function listStudyPrograms(callback) {
 }
 
 function listSemesters() {
-	const startDate = new Date(2020, 9, 1);
+	const startDate = new Date(2018, 9, 1);
 	const today = new Date();
 	const currentDate = new Date(startDate);
 
